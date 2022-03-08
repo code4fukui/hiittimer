@@ -15,6 +15,7 @@
 <style>
 body {
   text-align: center;
+  font-family: sans-serif;
 }
 h1 {
   font-size: 80px;
@@ -36,47 +37,48 @@ a {
 const sleep = async (sec) => new Promise(resolve => setTimeout(resolve, 1000 * sec));
 
 onload = async () => {
-  const audio = new Audio("./soundeffect-lab-btn34.mp3");
-  const audiopin = new Audio("./soundeffect-lab-btn1.mp3");
-  const audioclear = new Audio("./soundeffect-lab-btn5.mp3");
-  const audioend = new Audio("./soundeffect-lab-btn30.mp3");
-
-  const pin = () => {
-    audiopin.currentTime = 0;
-    audiopin.play();
-  };
-  const pon = () => {
-    audio.currentTime = 0;
-    audio.play();
-  };
-  const clear = () => {
-    audioclear.currentTime = 0;
-    audioclear.play();
-  };
-  const end = () => {
-    audioend.currentTime = 0;
-    audioend.play();
-  };
-  const hiit = () => {
-    document.body.style.background = "#f88";
-    document.body.style.color = "white";
-  };
-  const rest = () => {
-    document.body.style.background = "white";
-    document.body.style.color = "black";
-  };
-
-  const p = (s) => {
-    time.textContent = s;
-  };
-  const cnt = (n) => {
-    count.textContent = n;
-  };
-
-  // main
   btn.onclick = async () => {
     btn.disabled = true;
 
+    // init
+    const audio = new Audio("./soundeffect-lab-btn34.mp3");
+    const audiopin = new Audio("./soundeffect-lab-btn1.mp3");
+    const audioclear = new Audio("./soundeffect-lab-btn5.mp3");
+    const audioend = new Audio("./soundeffect-lab-btn30.mp3");
+
+    const pin = () => {
+      audiopin.currentTime = 0;
+      audiopin.play();
+    };
+    const pon = () => {
+      audio.currentTime = 0;
+      audio.play();
+    };
+    const clear = () => {
+      audioclear.currentTime = 0;
+      audioclear.play();
+    };
+    const end = () => {
+      audioend.currentTime = 0;
+      audioend.play();
+    };
+    const hiit = () => {
+      document.body.style.background = "#f88";
+      document.body.style.color = "white";
+    };
+    const rest = () => {
+      document.body.style.background = "white";
+      document.body.style.color = "black";
+    };
+
+    const p = (s) => {
+      time.textContent = s;
+    };
+    const cnt = (n) => {
+      count.textContent = n;
+    };
+
+    // main
     for (let i = 3; i >= 1; i--) {
       p(i);
       pon();
