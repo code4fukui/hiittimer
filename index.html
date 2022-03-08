@@ -47,18 +47,22 @@ onload = async () => {
     const audioend = new Audio("./soundeffect-lab-btn30.mp3");
 
     const pin = () => {
+      audiopin.pause();
       audiopin.currentTime = 0;
       audiopin.play();
     };
     const pon = () => {
+      audio.pause();
       audio.currentTime = 0;
       audio.play();
     };
     const clear = () => {
+      audioclear.pause();
       audioclear.currentTime = 0;
       audioclear.play();
     };
     const end = () => {
+      audioend.pause();
       audioend.currentTime = 0;
       audioend.play();
     };
@@ -110,6 +114,7 @@ onload = async () => {
       p(0);
       pin();
     }
+    p(0);
     end();
 
     btn.disabled = false;
