@@ -1,0 +1,117 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>HIIT TIMER</title>
+</head>
+<body>
+
+<h1>HIIT TIMER</h1>
+<div class="time"><span id="time">0</span> / <span id="count">1</span></div>
+<button id="btn">START</button>
+<div class="link">
+<a href="https://fukuno.jig.jp/3508">APP by @taisukef</a>
+<a href="https://soundeffect-lab.info/sound/button/">SOUND by 効果音ラボ</a>
+<a href="https://github.com/code4fukui/hiittimer/">src on GitHub</a>
+</div>
+
+<style>
+body {
+  text-align: center;
+}
+h1 {
+  font-size: 80px;
+}
+.time {
+  font-size: 40px;
+}
+button {
+  font-size: 40px;
+  padding: 10px;
+  margin: 50px;
+}
+a {
+  color: gray !important;
+}
+</style>
+
+<script type="module">
+const sleep = async (sec) => new Promise(resolve => setTimeout(resolve, 1000 * sec));
+
+onload = async () => {
+  const audio = new Audio("./soundeffect-lab-btn34.mp3");
+  const audiopin = new Audio("./soundeffect-lab-btn1.mp3");
+  const audioclear = new Audio("./soundeffect-lab-btn5.mp3");
+  const audioend = new Audio("./soundeffect-lab-btn30.mp3");
+
+  const pin = () => {
+    audiopin.currentTime = 0;
+    audiopin.play();
+  };
+  const pon = () => {
+    audio.currentTime = 0;
+    audio.play();
+  };
+  const clear = () => {
+    audioclear.currentTime = 0;
+    audioclear.play();
+  };
+  const end = () => {
+    audioend.currentTime = 0;
+    audioend.play();
+  };
+  const hiit = () => {
+    document.body.style.background = "#f88";
+    document.body.style.color = "white";
+  };
+  const rest = () => {
+    document.body.style.background = "white";
+    document.body.style.color = "black";
+  };
+
+  const p = (s) => {
+    time.textContent = s;
+  };
+  const cnt = (n) => {
+    count.textContent = n;
+  };
+
+  // main
+  btn.onclick = async () => {
+    btn.disabled = true;
+
+    for (let i = 3; i >= 1; i--) {
+      p(i);
+      pon();
+      await sleep(1);
+    }
+    pin();
+    for (let i = 0; i < 4; i++) {
+      cnt(i + 1);
+      hiit();
+      for (let j = 20; j > 0; j--) {
+        p(j);
+        if (j <= 3) {
+          pon();
+        }
+        await sleep(1);
+      }
+      rest();
+      if (i == 3) {
+        break;
+      }
+      clear();
+      for (let j = 10; j > 0; j--) {
+        p(j);
+        if (j <= 3) {
+          pon();
+        }
+        await sleep(1);
+      }
+      p(0);
+      pin();
+    }
+    end();
+
+    btn.disabled = false;
+  };
+};
+</script>
+</body></html>
