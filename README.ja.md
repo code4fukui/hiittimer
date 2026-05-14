@@ -4,7 +4,7 @@
 
 ## デモ
 
-[**https://code4fukui.github.io/hiittimer/**](https://code4fukui.github.io/hiittimer/)
+[**https://github.com/code4fukui/hiittimer](https://code4fukui.github.io/hiittimer/)
 
 タイマーは視覚的にわかりやすい合図を提供します。高強度の運動インターバル中は背景が赤色になり、休憩期間中は白色になります。
 

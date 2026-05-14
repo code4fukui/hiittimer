@@ -6,7 +6,7 @@ A simple, browser-based timer for High-Intensity Interval Training (HIIT), pre-c
 
 ## Demo
 
-[**https://code4fukui.github.io/hiittimer/**](https://code4fukui.github.io/hiittimer/)
+[**https://github.com/code4fukui/hiittimer](https://code4fukui.github.io/hiittimer/)
 
 The timer provides clear visual cues. The background is red during high-intensity work intervals and white during rest periods.
 
